@@ -17,11 +17,11 @@ header {
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
-header img {
+ header img {
     margin-left: 20px; /* Pas de marge supplémentaire */
-    width: 9%;
-    height: auto; /* Pour que l'image conserve ses proportions */
-}
+    width: 70%; 
+    height: auto; /*Pour que l'image conserve ses proportions */
+ }
 
 
 
