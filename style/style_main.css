@@ -3,6 +3,10 @@ body
     background-color: whitesmoke;
 }
 
+p
+{
+    text-align: justify;
+}
 .Reference
 {
     text-decoration: none;
@@ -11,8 +15,29 @@ body
     font-style: italic;
 }
 
+.p_Reference
+{
+    text-align: right;
+    margin-right: 50px;
+}
 
 main
 {
     margin: 20px;
+}
+
+body > main > ul > li > a{
+    color: black;
+}
+
+.ancres
+{
+    list-style-type: none;
+}
+
+.ancres li::before
+{
+    content: "#"; /* Affiche le compteur suivi de # */
+    margin-right: 10px;
+    color: #000;
 }

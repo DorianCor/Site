@@ -20,19 +20,94 @@
                     <a>Mes définitions ▿</a>
                     <ul>
                         <li><a href="Def_OAuth.html">OAuth</a></li>
-                        <li><a href="Def_OAuth.html">Http</a></li>
+                        <li><a href="Def_Http.html">Http</a></li>
                     </ul>
                 </li>
                 <li><a href="About.html">About</a></li>
-                <li><a href="Contact.html">Contact</a></li>
             </ul>
         </nav>
         
     </header>
     <main>
-        <p>
-            b
-        </p>
+        <h1>OAuth : Protocole d’Autorisation Moderne et Sécurisé</h1>
+
+        <p>OAuth (Open Authorization) est un protocole d’autorisation standardisé qui permet à des applications d'accéder à des ressources protégées (comme des données personnelles) sur un autre service sans que l'utilisateur ne partage ses identifiants, comme son mot de passe. À la place, OAuth utilise un mécanisme basé sur des jetons d’accès temporaires pour accorder des permissions spécifiques et sécurisées à des applications tierces.</p>
+
+        <h2>Principe général</h2>
+        <p>Le principal avantage d’OAuth est qu’il dissocie l’authentification (vérification de l’identité de l'utilisateur) de l’autorisation (gestion des permissions). Cela permet à une application tierce d'agir pour le compte d'un utilisateur sans nécessiter ses identifiants de connexion. Au lieu de partager son mot de passe, l'utilisateur autorise l'application à interagir avec ses données à travers un processus sécurisé. Voici un exemple concret pour illustrer ce fonctionnement :</p>
+        
+        <p>Exemple : Utiliser OAuth pour lier une application avec Google Calendar</p>
+
+        <ol>
+            <li>Vous (l'utilisateur) souhaitez que votre application de gestion de projets puisse accéder à votre Google Calendar pour ajouter des événements.</li>
+            <li>L’application de gestion de projets (le client) veut accéder à vos données Google, mais elle n’a pas besoin de votre mot de passe. Elle redirige donc vers Google pour obtenir l’autorisation d’accès.</li>
+            <li>Google (le serveur d’autorisation) vous demande votre permission à travers une interface de connexion, où vous pouvez vérifier et accepter les permissions demandées par l'application (comme l'accès en lecture ou en écriture à votre calendrier).</li>
+            <li>Une fois que vous avez donné votre accord, Google génère un jeton d'accès et le fournit à l'application. Ce jeton contient les autorisations spécifiques que vous avez accordées (par exemple, uniquement l’accès en lecture à votre calendrier, sans possibilité de modification).</li>
+            <li>L'application utilise ensuite ce jeton d'accès pour interagir avec les services de Google (le serveur de ressources) et exécuter des actions sur votre calendrier selon les permissions accordées.</li>
+        </ol>
+
+        <p>Ainsi, vous ne partagez jamais votre mot de passe Google directement avec l'application. En revanche, vous lui avez temporairement confié un accès limité, que vous pouvez révoquer à tout moment depuis votre compte Google.</p>
+
+        <h2>Les acteurs d'OAuth</h2>
+
+        <p>Plusieurs rôles clés sont impliqués dans le fonctionnement d’OAuth :</p>
+        
+        <ol>
+            <li>Propriétaire des ressources (l'utilisateur) : Celui qui contrôle les données ou ressources protégées (exemple : votre compte Google avec vos calendriers).</li>
+            <li>Client (l'application) : L'application qui souhaite accéder aux ressources de l'utilisateur, comme l'application de gestion de projets.</li>
+            <li>Serveur d’autorisation (le service qui gère l'authentification, ex. : Google) : Il s’assure que l’utilisateur est bien authentifié et lui demande s’il souhaite autoriser l’accès à l'application.</li>
+            <li>Serveur de ressources (le service qui gère les données, ex. : les serveurs de Google Calendar) : Il fournit les ressources ou données protégées après avoir vérifié la validité du jeton d’accès.</li>
+        </ol>
+        
+        <h2>Jetons dans OAuth</h2>
+
+        <p>Deux types de jetons sont utilisés pour sécuriser les échanges dans OAuth :</p>
+        
+        <ul>
+            <li>Jeton d'accès : Un jeton temporaire donné au client pour accéder aux ressources de l'utilisateur. Il est limité dans le temps et dans les actions qu'il peut accomplir, selon les permissions accordées par l'utilisateur.</li>
+            <li>Jeton de renouvellement (refresh token) : Ce jeton permet au client de demander un nouveau jeton d'accès lorsque le précédent expire, sans que l'utilisateur ait besoin de se reconnecter.</li>
+        </ul>
+        
+        <h2>Les flux OAuth (OAuth Flows)</h2>
+
+        <p>Il existe plusieurs façons, ou flux, pour qu’un client obtienne un jeton d'accès. Ces différents scénarios sont adaptés selon le type d'application (web, mobile, etc.) et son niveau de sécurité :</p>
+        
+        <ol>
+            <li>Flux de code d'autorisation : Utilisé par les applications web sécurisées, ce flux en deux étapes consiste à rediriger l'utilisateur vers le serveur d'autorisation pour obtenir un code d'autorisation. Ce code est ensuite échangé contre un jeton d'accès.</li>
+            <li>Flux implicite : Conçu pour les applications web ou mobiles qui ne peuvent pas protéger de manière sécurisée leurs identifiants. Le jeton d'accès est directement renvoyé après l'autorisation, sans étape intermédiaire.</li>
+            <li>Flux de mot de passe : Moins sécurisé, ce flux permet à l'application de recueillir directement les identifiants de l'utilisateur pour obtenir un jeton d'accès. Il ne doit être utilisé que par des applications de confiance.</li>
+            <li>Flux des identifiants clients : Ce flux est utilisé lorsque le client (l'application) est aussi le propriétaire des ressources (par exemple, une API servant ses propres données).</li>
+        </ol>
+        
+        <h2>Cas d’usage courants d’OAuth</h2>
+        
+        <p>OAuth est omniprésent dans les services modernes, notamment dans les cas suivants :</p>
+        
+        <ul>
+            <li>Connexion via un tiers : De nombreuses applications permettent aux utilisateurs de se connecter via leurs comptes Google, Facebook ou Twitter. Cette intégration utilise OAuth pour obtenir l'autorisation d'accéder aux données de l'utilisateur.</li>
+            <li>Accès aux API : OAuth permet à une application d'accéder aux services d'une autre (comme une application qui publie des tweets sur un compte Twitter), sans nécessiter le partage des identifiants du compte.</li>
+            <li>Microservices : Dans des architectures complexes avec de multiples services interconnectés, OAuth peut sécuriser les échanges d’informations entre ces services.</li>
+            <li>Applications mobiles et de bureau : Les applications locales utilisent OAuth pour accéder à des données stockées sur des serveurs distants (par exemple, une application de fitness qui synchronise des données de santé avec un fournisseur de services).</li>
+        </ul>
+        
+        <h2>Comparaison avec d’autres protocoles</h2>
+        
+        <p>OAuth est souvent comparé à d’autres standards d’authentification et d’autorisation comme SAML (Security Assertion Markup Language) et OpenID Connect :</p>
+
+        <ul>
+            <li>OAuth vs SAML : OAuth est léger, adapté aux applications mobiles et à l’autorisation entre services tiers. SAML, quant à lui, est principalement utilisé pour l'authentification unique (SSO) dans les entreprises.</li>
+            <li>OAuth vs OpenID Connect : OAuth traite de l'autorisation, tandis qu'OpenID Connect ajoute une couche d'authentification sur OAuth, permettant de vérifier l’identité d’un utilisateur.</li>
+        </ul>
+        
+        <h2>Avantages d’OAuth</h2>
+
+        <ul>
+            <li>Sécurité améliorée : Les utilisateurs n’ont pas à partager leurs identifiants avec chaque application ; seuls des jetons temporaires sont échangés.</li>
+            <li>Contrôle granulaire des accès : Les utilisateurs peuvent limiter précisément quelles données sont accessibles et pour combien de temps.</li>
+            <li>Simplicité d’usage : OAuth facilite l'intégration entre services, simplifiant l'expérience utilisateur (par exemple, "Se connecter avec Google").</li>
+        </ul>
+        
+        <p>En résumé, OAuth est devenu un protocole incontournable pour la gestion des autorisations, permettant un accès sécurisé aux ressources des utilisateurs sans compromettre la sécurité de leurs identifiants.</p>
     </main>
 
     <footer>

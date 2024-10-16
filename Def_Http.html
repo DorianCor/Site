@@ -20,19 +20,122 @@
                     <a>Mes définitions ▿</a>
                     <ul>
                         <li><a href="Def_OAuth.html">OAuth</a></li>
-                        <li><a href="Def_OAuth.html">Http</a></li>
+                        <li><a href="Def_Http.html">Http</a></li>
                     </ul>
                 </li>
                 <li><a href="About.html">About</a></li>
-                <li><a href="Contact.html">Contact</a></li>
             </ul>
         </nav>
         
     </header>
     <main>
         <p>
-            c
+            HTTP (Hypertext Transfer Protocol) est un protocole qui permet aux navigateurs web de récupérer des pages et d'autres ressources depuis des serveurs. Il fonctionne selon un modèle simple où un client (généralement un navigateur) envoie une requête à un serveur, et le serveur répond avec les données demandées, comme une page web.
         </p>
+
+        <h2>Principes de base d'HTTP</h2>
+
+        <ul>
+            <li>Requête HTTP : Lorsqu'un utilisateur visite un site web, le navigateur envoie une requête HTTP au serveur. Une requête typique contient :</li>
+            
+            <ul>
+                <li>Méthode HTTP : Le type d'action que le client souhaite que le serveur effectue. Par exemple, la méthode GET demande des informations (comme une page web), et POST envoie des données (comme un formulaire rempli).</li>
+                <li>URL : L'adresse de la ressource demandée (ex : www.example.com/page).</li>
+                <li>En-têtes HTTP : Informations supplémentaires, comme le type de navigateur utilisé ou les paramètres de connexion.</li>
+                <li>Corps de la requête (optionnel) : Utilisé dans certaines requêtes comme POST pour envoyer des données au serveur (par exemple, des identifiants de connexion).</li>
+            </ul>
+
+            <li>Réponse HTTP : Le serveur répond à la requête avec :</li>
+
+            <ul>
+                <li>Code de statut : Un nombre à trois chiffres qui indique le résultat de la requête. Les plus courants sont 200 OK (succès), 404 Not Found (page introuvable), et 500 Internal Server Error (erreur serveur).</li>
+                <li>En-têtes HTTP : Informations sur les données envoyées, comme le type de fichier (HTML, image) ou la langue.</li>
+                <li>Corps de la réponse : Les données demandées, souvent le code HTML d'une page.</li>
+            </ul>
+        </ul>
+
+        <h2>HTTP est stateless</h2>
+        
+        <p>Cela signifie que chaque requête est indépendante : le serveur ne se souvient pas des requêtes précédentes. Cependant, des technologies comme les cookies sont utilisées pour conserver des informations entre les requêtes (comme l'état d'une connexion).</p>
+    
+        <h2>HTTPS</h2>
+
+        <p>HTTPS (HTTP Secure) est une version sécurisée de HTTP. Elle chiffre les données échangées entre le client et le serveur pour protéger contre les interceptions malveillantes.</p>
+
+        <p>En résumé, HTTP est le protocole qui permet aux navigateurs de communiquer avec les serveurs web pour charger des pages et d'autres contenus, et HTTPS assure que cette communication est sécurisée.</p>
+    
+        <h2>Versions d'HTTP</h2>
+
+        <h3>1. HTTP/0.9 (1991) :</h3>
+
+        <ul>
+            <li>Première version expérimentale d'HTTP.</li>
+            <li>Très simple : elle ne supportait que la méthode GET et n'avait ni en-têtes ni messages de statut.</li>
+            <li>Elle servait uniquement des fichiers HTML, et la connexion se fermait immédiatement après la livraison de la réponse.</li>
+        </ul>
+
+        <h3>2. HTTP/1.0 (1996) :</h3>
+
+        <ul>
+            <li>Introduction des en-têtes HTTP : Permet l'envoi de métadonnées (comme le type de contenu, la longueur du fichier, etc.).</li>
+            <li>Méthodes supplémentaires : Ajout de méthodes comme POST (pour envoyer des données) et HEAD (pour récupérer les en-têtes sans le corps de la réponse).</li>
+            <li>Connexions par requête : Chaque requête ouvrait une nouvelle connexion, ce qui entraînait une surcharge importante.</li>
+        </ul>
+
+        <h3>3. HTTP/1.1 (1997) :</h3>
+
+        <ul>
+            <li>Connexions persistantes : Permet plusieurs requêtes/réponses sur une seule connexion TCP, réduisant ainsi la surcharge réseau.</li>
+            <li>Gestion des caches : Introduction de mécanismes pour permettre de mieux contrôler la mise en cache des ressources (en-têtes Cache-Control et ETag).</li>
+            <li>Pipeline de requêtes : Permet d'envoyer plusieurs requêtes sans attendre la réponse à la précédente, mais cette fonctionnalité était rarement utilisée en pratique.</li>
+            <li>Compression des en-têtes et du contenu pour améliorer la performance.</li>
+        </ul>
+
+        <h3>4. HTTP/2 (2015) :</h3>
+
+        <ul>
+            <li>Multiplexage : Permet l'envoi simultané de plusieurs requêtes/réponses sur une même connexion, résolvant le problème de "blocage de tête de ligne" où une requête bloquait toutes les autres.</li>
+            <li>Compression des en-têtes : Réduction de la redondance dans les en-têtes de requêtes répétées.</li>
+            <li>Utilisation d'une seule connexion : HTTP/2 maintient une seule connexion persistante pour de multiples transactions, améliorant la performance du réseau.</li>
+            <li>Priorisation des requêtes : Certaines requêtes peuvent être traitées en priorité, améliorant l'expérience utilisateur pour les contenus plus critiques (comme le rendu visuel d’une page).</li>
+        </ul>
+
+        <h3>5. HTTP/3 (en cours d'adoption) :</h3>
+
+        <ul>
+            <li>Utilisation de QUIC : HTTP/3 repose sur QUIC, un nouveau protocole de transport basé sur UDP, au lieu de TCP utilisé dans les versions précédentes. QUIC résout certains problèmes de performance, notamment en évitant le "Head-of-Line Blocking" de HTTP/2.</li>
+            <li>Réduction de la latence : QUIC permet d'établir les connexions plus rapidement et de récupérer plus vite des pertes de paquets.</li>
+            <li>Chiffrement natif : Comme HTTPS, HTTP/3 est sécurisé par défaut, avec toutes les connexions chiffrées.</li>
+        </ul>
+
+        <h2>Évolution et défis</h2>
+
+        <p>Chaque nouvelle version d'HTTP a cherché à résoudre des problèmes liés à la performance, à la sécurité et à l'efficacité des communications sur le web. Par exemple :</p>
+
+        <ul>
+            <li>HTTP/1.0 était simple mais peu efficace en raison de l'ouverture et fermeture de connexions à chaque requête.</li>
+            <li>HTTP/1.1 a permis de rendre les connexions persistantes, améliorant ainsi les performances.</li>
+            <li>HTTP/2 a introduit le multiplexage, qui a considérablement accéléré le chargement des pages, surtout celles comportant de nombreuses ressources.</li>
+            <li>HTTP/3, avec QUIC, va encore plus loin en améliorant la latence et la résilience du protocole en cas de perte de paquets réseau.</li>
+        </ul>
+
+        <h2>Méthodes HTTP (en plus)</h2>
+
+        <p>En plus des versions, voici un rappel des principales méthodes utilisées dans les requêtes HTTP :</p>
+
+        <ul>
+            <li>GET : Récupère des données (comme une page web).</li>
+            <li>POST : Soumet des données au serveur (ex : formulaire).</li>
+            <li>PUT : Remplace une ressource existante par de nouvelles données.</li>
+            <li>DELETE : Supprime une ressource.</li>
+            <li>HEAD : Similaire à GET, mais ne renvoie que les en-têtes de la réponse.</li>
+            <li>OPTIONS : Demande quelles méthodes sont supportées par le serveur.</li>
+            <li>PATCH : Applique des modifications partielles à une ressource.</li>
+        </ul>
+
+        <h2>Résumé</h2>
+
+        <p>HTTP a évolué à travers plusieurs versions pour améliorer la rapidité, la sécurité et la capacité à gérer de multiples requêtes sur le Web moderne. HTTP/3, la version la plus récente, apporte des améliorations significatives en utilisant QUIC, un nouveau protocole réseau conçu pour améliorer les performances des connexions sur Internet, notamment en réduisant la latence et en rendant les connexions plus robustes.</p>
     </main>
 
     <footer>
