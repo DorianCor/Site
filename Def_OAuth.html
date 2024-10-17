@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style_Header.css">
     <link rel="stylesheet" href="./style/style_main.css">
+    <link rel="stylesheet" href="style/style_footer.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+
     <title>Définition OAuth</title>
 </head>
 <body>
@@ -34,30 +38,38 @@
         <p>OAuth (Open Authorization) est un protocole d’autorisation standardisé qui permet à des applications d'accéder à des ressources protégées (comme des données personnelles) sur un autre service sans que l'utilisateur ne partage ses identifiants, comme son mot de passe. À la place, OAuth utilise un mécanisme basé sur des jetons d’accès temporaires pour accorder des permissions spécifiques et sécurisées à des applications tierces.</p>
 
         <h2>Principe général</h2>
-        <p>Le principal avantage d’OAuth est qu’il dissocie l’authentification (vérification de l’identité de l'utilisateur) de l’autorisation (gestion des permissions). Cela permet à une application tierce d'agir pour le compte d'un utilisateur sans nécessiter ses identifiants de connexion. Au lieu de partager son mot de passe, l'utilisateur autorise l'application à interagir avec ses données à travers un processus sécurisé. Voici un exemple concret pour illustrer ce fonctionnement :</p>
-        
-        <p>Exemple : Utiliser OAuth pour lier une application avec Google Calendar</p>
 
-        <ol>
-            <li>Vous (l'utilisateur) souhaitez que votre application de gestion de projets puisse accéder à votre Google Calendar pour ajouter des événements.</li>
-            <li>L’application de gestion de projets (le client) veut accéder à vos données Google, mais elle n’a pas besoin de votre mot de passe. Elle redirige donc vers Google pour obtenir l’autorisation d’accès.</li>
-            <li>Google (le serveur d’autorisation) vous demande votre permission à travers une interface de connexion, où vous pouvez vérifier et accepter les permissions demandées par l'application (comme l'accès en lecture ou en écriture à votre calendrier).</li>
-            <li>Une fois que vous avez donné votre accord, Google génère un jeton d'accès et le fournit à l'application. Ce jeton contient les autorisations spécifiques que vous avez accordées (par exemple, uniquement l’accès en lecture à votre calendrier, sans possibilité de modification).</li>
-            <li>L'application utilise ensuite ce jeton d'accès pour interagir avec les services de Google (le serveur de ressources) et exécuter des actions sur votre calendrier selon les permissions accordées.</li>
-        </ol>
+        <div class="container">
 
-        <p>Ainsi, vous ne partagez jamais votre mot de passe Google directement avec l'application. En revanche, vous lui avez temporairement confié un accès limité, que vous pouvez révoquer à tout moment depuis votre compte Google.</p>
+            <p>Le principal avantage d’OAuth est qu’il dissocie l’authentification (vérification de l’identité de l'utilisateur) de l’autorisation (gestion des permissions). Cela permet à une application tierce d'agir pour le compte d'un utilisateur sans nécessiter ses identifiants de connexion. Au lieu de partager son mot de passe, l'utilisateur autorise l'application à interagir avec ses données à travers un processus sécurisé. Voici un exemple concret pour illustrer ce fonctionnement :</p>
+            
+            <img src="./images/cyber-security-3400657_640.jpg" alt="Protection des données" class="image_droite">
 
-        <h2>Les acteurs d'OAuth</h2>
+            <p>Exemple : Utiliser OAuth pour lier une application avec Google Calendar</p>
+    
+            <ol>
+                <li>Vous (l'utilisateur) souhaitez que votre application de gestion de projets puisse accéder à votre Google Calendar pour ajouter des événements.</li>
+                <li>L’application de gestion de projets (le client) veut accéder à vos données Google, mais elle n’a pas besoin de votre mot de passe. Elle redirige donc vers Google pour obtenir l’autorisation d’accès.</li>
+                <li>Google (le serveur d’autorisation) vous demande votre permission à travers une interface de connexion, où vous pouvez vérifier et accepter les permissions demandées par l'application (comme l'accès en lecture ou en écriture à votre calendrier).</li>
+                <li>Une fois que vous avez donné votre accord, Google génère un jeton d'accès et le fournit à l'application. Ce jeton contient les autorisations spécifiques que vous avez accordées (par exemple, uniquement l’accès en lecture à votre calendrier, sans possibilité de modification).</li>
+                <li>L'application utilise ensuite ce jeton d'accès pour interagir avec les services de Google (le serveur de ressources) et exécuter des actions sur votre calendrier selon les permissions accordées.</li>
+            </ol>
+    
+            <p>Ainsi, vous ne partagez jamais votre mot de passe Google directement avec l'application. En revanche, vous lui avez temporairement confié un accès limité, que vous pouvez révoquer à tout moment depuis votre compte Google.</p>
+    
+            <h2>Les acteurs d'OAuth</h2>
+    
+            <p>Plusieurs rôles clés sont impliqués dans le fonctionnement d’OAuth :</p>
+            
+            <ol>
+                <li>Propriétaire des ressources (l'utilisateur) : Celui qui contrôle les données ou ressources protégées (exemple : votre compte Google avec vos calendriers).</li>
+                <li>Client (l'application) : L'application qui souhaite accéder aux ressources de l'utilisateur, comme l'application de gestion de projets.</li>
+                <li>Serveur d’autorisation (le service qui gère l'authentification, ex. : Google) : Il s’assure que l’utilisateur est bien authentifié et lui demande s’il souhaite autoriser l’accès à l'application.</li>
+                <li>Serveur de ressources (le service qui gère les données, ex. : les serveurs de Google Calendar) : Il fournit les ressources ou données protégées après avoir vérifié la validité du jeton d’accès.</li>
+            </ol>
+        </div>
 
-        <p>Plusieurs rôles clés sont impliqués dans le fonctionnement d’OAuth :</p>
-        
-        <ol>
-            <li>Propriétaire des ressources (l'utilisateur) : Celui qui contrôle les données ou ressources protégées (exemple : votre compte Google avec vos calendriers).</li>
-            <li>Client (l'application) : L'application qui souhaite accéder aux ressources de l'utilisateur, comme l'application de gestion de projets.</li>
-            <li>Serveur d’autorisation (le service qui gère l'authentification, ex. : Google) : Il s’assure que l’utilisateur est bien authentifié et lui demande s’il souhaite autoriser l’accès à l'application.</li>
-            <li>Serveur de ressources (le service qui gère les données, ex. : les serveurs de Google Calendar) : Il fournit les ressources ou données protégées après avoir vérifié la validité du jeton d’accès.</li>
-        </ol>
+
         
         <h2>Jetons dans OAuth</h2>
 
@@ -108,10 +120,14 @@
         </ul>
         
         <p>En résumé, OAuth est devenu un protocole incontournable pour la gestion des autorisations, permettant un accès sécurisé aux ressources des utilisateurs sans compromettre la sécurité de leurs identifiants.</p>
+    
+        <p class="p_Reference"><a href="https://fr.wikipedia.org/wiki/OAuth#:~:text=OAuth%20est%20un%20protocole%20libre,%C2%AB%20d%C3%A9l%C3%A9gation%20d'autorisation%20%C2%BB." class="Reference">https://fr.wikipedia.org/wiki/OAuth#:~:text=OAuth%20est%20un%20protocole%20libre,%C2%AB%20d%C3%A9l%C3%A9gation%20d'autorisation%20%C2%BB.</a></p>
+        <p class="p_Reference"><a href="https://auth0.com/fr/intro-to-iam/what-is-oauth-2" class="Reference">https://auth0.com/fr/intro-to-iam/what-is-oauth-2</a></p>
+        <p class="p_Reference"><a href="https://www.chatgpt.com/" class="Reference">https://www.chatgpt.com/</a></p>
     </main>
 
     <footer>
-
+        Copyright © 2024 Dorian Corluy
     </footer>
 </body>
 </html>

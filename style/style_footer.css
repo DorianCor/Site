@@ -1,0 +1,11 @@
+footer {
+    background-color: #D5CABC;
+    color: black; /* Couleur du texte */
+    text-align: right;
+    padding: 10px 0;
+    padding-right: 20px;
+    width: 100%; /* Utiliser 100% pour s'assurer qu'il s'étend sur toute la largeur */
+    margin: 0; /* Enlever toutes les marges */
+    position: relative; /* Utilise relative pour qu'il soit dans le flux normal */
+    box-sizing: border-box; /* Inclure les bordures et padding dans la largeur totale */
+}

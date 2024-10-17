@@ -1,6 +1,24 @@
 body
 {
     background-color: whitesmoke;
+    flex: 1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Montserrat', sans-serif;
+    color: #21313f; /* Couleur des titres */
+}
+
+h1, h2, h3 {
+    text-decoration: underline;
+    text-decoration-color: #21313f; /* Couleur du soulignement */
+}
+
+h1
+{
+    text-align: center;
 }
 
 p
@@ -19,11 +37,13 @@ p
 {
     text-align: right;
     margin-right: 50px;
+    clear: both;
 }
 
 main
 {
     margin: 20px;
+    flex: 1;
 }
 
 body > main > ul > li > a{
@@ -41,3 +61,90 @@ body > main > ul > li > a{
     margin-right: 10px;
     color: #000;
 }
+
+
+
+
+
+/*=================================== IMAGES ===================================*/
+
+main img
+{
+    border-radius: 15px;
+    border: solid black 1px;
+}
+
+
+.container {
+    overflow: hidden; /* Pour contenir les éléments flottants */
+    margin: 20px;
+}
+
+.image_droite {
+    float: right;
+    margin-left: 20px; 
+    margin-bottom: 20px; 
+    width: 30%; 
+    height: auto; 
+}
+
+.texte_gauche {
+    text-align: justify;
+
+}
+
+
+
+
+.image_gauche {
+    float: left; 
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 30%; 
+    height: auto;
+}
+
+.texte_droite {
+    text-align: justify;
+    overflow: hidden;
+}
+.styled-list {
+    margin-left: 20px;
+    text-align: justify;
+}
+
+.styled-list_image
+{
+    margin-left: 32%;
+    text-align: justify; 
+}
+
+.styled-list_image li
+{
+    margin-bottom: 10px;
+}
+
+.styled-list li {
+    margin-bottom: 10px;
+}
+
+#image_web
+{
+    width: 40%;
+    height: auto;
+}
+
+#image_reduite
+{
+    width: 20%;
+    height: auto;
+}
+
+#image_centre
+{
+    display: block;
+    margin: 0 auto;
+}
+
+/*=================================== FIN IMAGES ===================================*/
+
