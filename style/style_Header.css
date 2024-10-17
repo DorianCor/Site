@@ -157,4 +157,33 @@ nav ul li ul li a:hover {
     nav ul li::after {
         display: none;
     }
+
+
+
+
+    /* Assure que les définitions sont au-dessus d'autres éléments comme "About" */
+    .definitions {
+        position: relative; /* Si elle n'est pas déjà positionnée */
+        z-index: 10; /* Assure que les définitions sont au-dessus */
+    }
+
+    /* Si nécessaire, on ajuste la position du contenu "About" */
+    .about {
+        position: relative;
+        z-index: 1; /* Le contenu "About" reste en dessous */
+    }
+
+    /* Vérifie que les liens dans les définitions couvrent bien toute leur surface */
+    .definitions a {
+        display: block;
+        width: 100%; /* Assure que les liens couvrent la totalité de l'espace */
+        padding: 10px;
+    }
+
+
+
+
+
+
+
 }
