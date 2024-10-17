@@ -9,3 +9,14 @@ footer {
     position: relative; /* Utilise relative pour qu'il soit dans le flux normal */
     box-sizing: border-box; /* Inclure les bordures et padding dans la largeur totale */
 }
+
+/*================================ VERSION TELEPHONE ================================*/
+
+/* Media query pour téléphone */
+@media (max-width: 768px) {
+    footer {
+        font-size: 12px; /* Réduit la taille du texte */
+        text-align: right; /* Maintient le texte à droite */
+        padding-right: 10px; /* Ajuste légèrement le padding si nécessaire */
+    }
+}

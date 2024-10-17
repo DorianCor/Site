@@ -148,3 +148,58 @@ main img
 
 /*=================================== FIN IMAGES ===================================*/
 
+/*================================ VERSION TELEPHONE ================================*/
+
+/* Media query pour téléphone */
+@media (max-width: 768px) {
+
+    h1 {
+        text-align: center;
+        font-size: 1.8em; /* Ajustement de la taille des grands titres pour mobile */
+    }
+
+    h2 {
+        font-size: 1.6em; /* Taille ajustée pour les sous-titres */
+    }
+
+    h3 {
+        font-size: 1.4em; /* Taille ajustée pour les petits titres */
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    /* Ajustement des images pour qu'elles soient en dessous du texte */
+    .image_droite, .image_gauche {
+        float: none; /* Supprime le flottement pour que l'image soit en dessous du texte */
+        display: block;
+        margin: 20px auto; /* Centrage des images avec marges ajustées */
+        width: 80%; /* Taille réduite pour les images */
+        height: auto; 
+    }
+
+    #image_web, #image_reduite {
+        width: 60%; /* Taille des images ajustée pour les téléphones */
+        margin: 20px auto;
+        display: block;
+        height: auto;
+    }
+
+    .styled-list, .styled-list_image {
+        margin-left: 10px; /* Réduction des marges pour les listes à puces */
+        text-align: justify;
+    }
+
+    .styled-list li, .styled-list_image li {
+        margin-bottom: 5px; /* Réduction de l'espacement entre les éléments de liste */
+    }
+
+    /* Ajustement pour l'image centrée */
+    #image_centre {
+        width: 60%; /* Ajustement de la taille pour les mobiles */
+        height: auto;
+    }
+
+}
+
