@@ -146,6 +146,7 @@ nav ul li ul li a:hover {
         width: 100%;
         justify-content: center;
         text-align: center; /* Centre les textes des éléments */
+        position: relative; /* Ajoute une position relative pour le sous-menu */
     }
 
     nav ul li a {
@@ -158,32 +159,20 @@ nav ul li ul li a:hover {
         display: none;
     }
 
-
-
-
-    /* Assure que les définitions sont au-dessus d'autres éléments comme "About" */
-    .definitions {
-        position: relative; /* Si elle n'est pas déjà positionnée */
-        z-index: 10; /* Assure que les définitions sont au-dessus */
+    nav ul li ul {
+        display: none;
+        position: absolute; /* Positionne le menu déroulant */
+        top: 100%; /* S'assure qu'il est en dessous de l'élément parent */
+        left: 0;
+        background-color: #D5CABC; /* Fond du sous-menu */
+        padding: 0;
+        list-style: none;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        z-index: 10; /* Assure que le sous-menu est au-dessus des autres éléments */
     }
 
-    /* Si nécessaire, on ajuste la position du contenu "About" */
-    .about {
-        position: relative;
-        z-index: 1; /* Le contenu "About" reste en dessous */
+    nav ul li:hover ul {
+        display: block; /* Affiche le sous-menu au survol */
     }
-
-    /* Vérifie que les liens dans les définitions couvrent bien toute leur surface */
-    .definitions a {
-        display: block;
-        width: 100%; /* Assure que les liens couvrent la totalité de l'espace */
-        padding: 10px;
-    }
-
-
-
-
-
-
-
 }
